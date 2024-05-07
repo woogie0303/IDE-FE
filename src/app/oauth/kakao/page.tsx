@@ -14,8 +14,7 @@ export default function KakaoRedirect() {
 
   useEffect(() => {
     loginMutation.mutate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [loginMutation]);
 
   return (
     <div>

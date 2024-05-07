@@ -30,7 +30,7 @@ export default function Sidebar<T>({ navData, renderItem }: Props<T>) {
   };
 
   return (
-    <div className="flex h-screen flex-col justify-between">
+    <div className="flex flex-col justify-between">
       <div className="  flex-col ">
         <div className="flex h-32 w-full items-center px-4 ">
           <h1
@@ -48,7 +48,7 @@ export default function Sidebar<T>({ navData, renderItem }: Props<T>) {
         </div>
         <h3 className="mx-3 mb-2 text-3xl font-semibold">연결된 유저</h3>
       </div>
-      <div className="mx-3">
+      <div className="mx-3 flex flex-col gap-2">
         <Shared.UI.Button
           text="초대박 아이디 복사"
           onClickHandler={copyRoomId}

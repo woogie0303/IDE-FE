@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import initMSW from "@/__mocks__";
 import * as Shared from "@/shared";
-import * as Widgets from "@/widgets";
 import "./globals.css";
 
 const notoSansKR = Noto_Sans_KR({
@@ -29,10 +28,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={notoSansKR.className}>
-        <Shared.Utils.QueryProvider>
-          <Widgets.Header />
-          {children}
-        </Shared.Utils.QueryProvider>
+        <Shared.Utils.QueryProvider>{children}</Shared.Utils.QueryProvider>
       </body>
     </html>
   );

@@ -11,7 +11,7 @@ import * as Entities from "@/entities";
 import * as Shared from "@/shared";
 import { DUMMY_DATA } from "@/features/room-sidebar/lib/utils/constant";
 import { useSetEditorFile } from "@/features/room-editor/lib/hooks/useSetEditorFile";
-import { useSetLivePreview } from "@/entities/live-preview/lib/hooks/useSetLivePreview";
+import { useSetLivePreview } from "@/entities/live-preview/lib/utils/useSetLivePreview";
 
 export default function EditorContainer() {
   const [activeFile, setActiveFile] = useState("index.html");
@@ -27,7 +27,7 @@ export default function EditorContainer() {
   }, []);
 
   return (
-    <div className="flex bg-bgdark px-2 text-white">
+    <div className="flex h-screen bg-bgdark p-5 text-white">
       <Head>
         <title>Editor | Code Online</title>
       </Head>
@@ -57,7 +57,7 @@ export default function EditorContainer() {
 
         <div className="grid grid-rows-[65vh_225px]">
           <Entities.LivePreview srcDoc={srcDoc} />
-          <div className="bg-bgdark">
+          <div className="flex flex-col bg-bgdark">
             <Features.ConsoleSection.UI />
           </div>
         </div>

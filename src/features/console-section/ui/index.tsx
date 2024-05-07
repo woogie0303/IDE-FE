@@ -19,7 +19,7 @@ export default function ConsoleSection() {
           className="ml-5 cursor-pointer"
         />
       </div>
-      <div className="h-full px-3 pt-3 text-black">
+      <div className="h-full overflow-scroll px-3 pt-3 text-black">
         {consoleFeed.map(feed => (
           <>
             <p

@@ -2,15 +2,21 @@
 
 import Link from "next/link";
 import * as Entities from "@/entities";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
   const { accessToken } = Entities.Auth.useAccessToken();
   const { logout } = Entities.Auth.useLogout();
-  const [isLoggedIn] = useState(!!accessToken);
+  const [isTrue, setIsTrue] = useState(false);
+
+  useEffect(() => {
+    if (accessToken) {
+      setIsTrue(true);
+    }
+  }, [accessToken]);
 
   return (
-    <header className="flex items-center justify-between p-4">
+    <header className="fixed z-30 flex w-full items-center justify-between p-4">
       <h1>
         <Link href="/" className="font-bold">
           LOGO
@@ -19,7 +25,7 @@ export default function Header() {
       <nav>
         <ul className="flex items-center justify-end gap-4">
           <li>
-            {isLoggedIn ? (
+            {isTrue ? (
               <button type="button" onClick={logout}>
                 로그아웃
               </button>

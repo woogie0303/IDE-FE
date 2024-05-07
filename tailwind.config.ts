@@ -14,7 +14,7 @@ const config: Config = {
     extend: {
       gridTemplateColumns: {
         // Simple 16 column grid
-        editor: "280px 1fr",
+        editor: "1fr 280px",
 
         // Complex site-specific column configuration
       },
