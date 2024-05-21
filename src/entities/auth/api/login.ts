@@ -8,6 +8,5 @@ export default async function login(info: LoginInfo) {
     credentials: "include",
     body: JSON.stringify(info),
   });
-
   return res;
 }

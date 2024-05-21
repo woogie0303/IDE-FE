@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import authKeys from "./auth-keys";
 import { LoginInfo } from "../types";
 import login from "../api/login";
+import { STORAGE_KEY_OF_TOKEN } from "../constants";
 
 export default function useLoginMutation(
   info: LoginInfo & { redirectTo?: string },
@@ -20,6 +21,7 @@ export default function useLoginMutation(
         authKeys.accessToken(),
         data.token,
       );
+      localStorage.setItem(STORAGE_KEY_OF_TOKEN, data.token);
       router.replace(info.redirectTo ?? "/");
     },
     onError: () => {

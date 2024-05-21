@@ -3,17 +3,12 @@
 import Link from "next/link";
 import * as Entities from "@/entities";
 import { useEffect, useState } from "react";
+import authKeys from "@/entities/auth/model/auth-keys";
 
 export default function Header() {
-  const { accessToken } = Entities.Auth.useAccessToken();
+  const { accessToken } = Entities.Auth.useAccessToken(authKeys.accessToken());
   const { logout } = Entities.Auth.useLogout();
-  const [isTrue, setIsTrue] = useState(false);
-
-  useEffect(() => {
-    if (accessToken) {
-      setIsTrue(true);
-    }
-  }, [accessToken]);
+  const [isTrue] = useState(!!accessToken);
 
   return (
     <header className="fixed z-30 flex w-full items-center justify-between p-4">
@@ -25,7 +20,7 @@ export default function Header() {
       <nav>
         <ul className="flex items-center justify-end gap-4">
           <li>
-            {isTrue ? (
+            {accessToken ? (
               <button type="button" onClick={logout}>
                 로그아웃
               </button>

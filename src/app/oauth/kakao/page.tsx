@@ -14,7 +14,7 @@ export default function KakaoRedirect() {
 
   useEffect(() => {
     loginMutation.mutate();
-  }, [loginMutation]);
+  }, []);
 
   return (
     <div>
